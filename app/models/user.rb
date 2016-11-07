@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :friends, class_name: "User"
+  has_many :notifications
 
 end
