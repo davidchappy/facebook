@@ -18,16 +18,19 @@ gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'paperclip', '~> 5.1'
 gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 gem 'faker', '~> 1.6', '>= 1.6.6'
-gem 'rspec-rails',                  :group => [:development, :test]
-gem 'capybara-rails', '~> 0.0.2',   :group => [:development, :test]
-gem 'guard', '2.13.0'
-gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap-sass', '3.3.6'
 gem 'carrierwave', '0.11.2'
 gem 'mini_magick', '4.5.1'
 gem 'fog', '1.38.0'
 gem 'will_paginate', '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+group :development, :test do
+  gem 'rspec-rails'                  
+  gem 'capybara-rails', '~> 0.0.2'
+  gem 'factory_girl_rails', '~> 4.7.0'
+  gem 'guard', '2.13.0'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+end
 
 group :development, :test do
   gem 'byebug', platform: :mri
