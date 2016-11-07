@@ -1,0 +1,14 @@
+<h1>Your Feed</h1>
+
+<% if @posts %>
+  <% @posts.each do |post| %>
+
+    <ul>
+      <li><%= post.content %></li>
+    </ul>
+
+  <% end %>
+
+<% else %>
+  <p>It's lonely here! Try <%= link_to("writing a post.", new_post_path) %>to spruce things up!</p>
+<% end %>
