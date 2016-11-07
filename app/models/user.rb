@@ -5,7 +5,9 @@ class User < ApplicationRecord
   :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
   has_many :posts
-  has_many :friends, class_name: "User"
   has_many :notifications
+  has_many :comments
+  has_many :friendships
+  has_many :friends, :through => :friendships
 
 end
