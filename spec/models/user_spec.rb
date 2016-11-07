@@ -2,17 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  # let(:user) { User.new(  name:                  "Example User",
-  #                           email:                 "user@example.com",
-  #                           password:              "password",
-  #                           password_confirmation: "password") }
-  # let(:user2) { User.new(  name:                  "Sample User",
-  #                           email:                 "sample@example.com",
-  #                           password:              "password",
-  #                           password_confirmation: "password") }
-
   let(:user) { build(:user) }
-  let(:user2) { build(:user2) }
+  let(:user2) { build(:user, email: "sample@example.com") }
   
   it "is valid" do
     expect(user).to be_valid
