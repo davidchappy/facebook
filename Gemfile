@@ -18,7 +18,7 @@ gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'paperclip', '~> 5.1'
 gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 gem 'faker', '~> 1.6', '>= 1.6.6'
-gem 'rspec', '~> 3.5'
+gem 'rspec-rails', :group => [:development, :test]
 gem 'guard', '2.13.0'
 gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap-sass', '3.3.6'
