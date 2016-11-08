@@ -5,7 +5,7 @@
     <% current_user.inverse_friendships.where(status: 'pending').each do |pending_friendship| %>
       <li><%= pending_friendship.user.name %> 
         (<%= link_to 'accept', friendship_path(pending_friendship.id), method: :patch %>, 
-        <%= link_to 'ignore', friendship_path(current_user.id), method: :delete %>)</li>
+        <%= link_to 'ignore', pending_friendship, method: :delete %>)</li>
     <% end %> 
   </ul>
 <% end %> 

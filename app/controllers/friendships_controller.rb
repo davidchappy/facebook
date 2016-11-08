@@ -23,8 +23,8 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = current_user.friendships.find_by(friend_id: params[:id])
-    @target_user = User.find(@friendship.friend_id)
+    @friendship = Friendship.find(params[:id])
+    @target_user = User.find(@friendship.friend_id) || User.find(@friendship.user_id)
     Friendship.find(@friendship.id).destroy
     flash[:notice] = "Unfriended #{@target_user.name}"
     redirect_to friends_path
@@ -32,8 +32,7 @@ class FriendshipsController < ApplicationController
 
   def index
     @user = current_user
-    @friendships = current_user.friendships.all
-    p @friendships
+    @friendships = current_user.all_friendships
   end
 
   private 
@@ -41,7 +40,7 @@ class FriendshipsController < ApplicationController
     def already_friends
       target_user = User.find(params[:friend_id])
       if friendship_exists?(target_user)
-        flash[:message] = "You've already asked that person to be your friend"
+        flash[:message] = "A friendship already exists with that person."
         redirect_to user_path(target_user)
       end
     end

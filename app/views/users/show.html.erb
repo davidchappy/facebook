@@ -1,0 +1,13 @@
+<h1><%= @user.name %></h1>
+
+<% unless @current_user == @user %>
+  <% if @current_user.is_friend?(@user) %>
+    <p>Friendship Status: <%= @current_user.relationship_status(@user) %>(
+        <%= link_to "remove", @current_user.find_friendship(@user), :method => :delete %>)</p>
+  <% else %>
+    <span>Not Friends. (<%= render 'friendships/add_friend', user: @user %>)</span>
+  <% end %>
+
+<% end %>
+
+<h3></h3>

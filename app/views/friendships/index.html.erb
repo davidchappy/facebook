@@ -2,14 +2,12 @@
 
 <ul>
   <% @friendships.each do |friendship| %>
-  <li>
-    <%= friendship.friend.name %>
-    <% if friendship.status == "pending" %>
-      (pending)
-    <% else %>  
-      (<%= link_to "remove", friendship, :method => :delete %>)
-    <% end %>  
-
-  </li>
+    <li>    
+      <% if @user.id == friendship.friend_id %>
+        <%= render 'friendships/inverse_friend', friendship: friendship %>      
+      <% else %>  
+        <%= render 'friendships/friend', friendship: friendship %>      
+      <% end %>   
+    </li>
   <% end %>  
 </ul>
