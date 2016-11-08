@@ -6,6 +6,6 @@ class UsersController < ApplicationController
 
   def show
     @current_user = current_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) if params[:id]
   end
 end
