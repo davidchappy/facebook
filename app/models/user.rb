@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates_format_of :email, :with => Devise::email_regexp
 
   has_many :posts, dependent: :destroy
-  has_many :notifications
   has_many :comments
 
   has_many :friendships
