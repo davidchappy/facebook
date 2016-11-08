@@ -19,4 +19,8 @@ class FriendshipsController < ApplicationController
     redirect_to @target_user
   end
 
+  def index
+    
+  end
+
 end
