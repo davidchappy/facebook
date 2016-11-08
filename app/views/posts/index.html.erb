@@ -1,6 +1,6 @@
 <h1>Your Feed</h1>
 
-<% if @posts %>
+<% if @posts.any? %>
   <% @posts.each do |post| %>
 
     <ul>
@@ -10,5 +10,5 @@
   <% end %>
 
 <% else %>
-  <p>It's lonely here! Try <%= link_to("writing a post.", new_post_path) %>to spruce things up!</p>
+  <p>It's lonely here! Try <%= link_to("writing a post", new_post_path) %> to spruce things up!</p>
 <% end %>

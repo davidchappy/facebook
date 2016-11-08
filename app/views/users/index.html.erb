@@ -1,0 +1,21 @@
+<h1>All Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <% unless user.id == @current_user.id %>
+      <li>
+        <%= user.name %>
+        <% if @current_user.friends.include?(user) %>
+          (<%= link_to "unfriend", friendship_path(user), :method => :delete %>)
+        <% else %>
+          (<%= form_for(@current_user.friendships.build, remote: true) do |f| %>
+            <div><%= hidden_field_tag :friend_id, user.id %></div>
+            <div><%= hidden_field_tag :user_id, @current_user.id %></div>
+            <%= f.submit "add friend" %>
+          <% end %>)
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>  
+</ul>
+
