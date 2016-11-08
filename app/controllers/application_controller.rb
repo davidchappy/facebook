@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
         user_params.permit({ roles: [] }, :name, :email, :password, 
                                           :password_confirmation, :current_password)
       end
+      devise_parameter_sanitizer.permit(:sign_in) do |user_params|
+        user_params.permit({ roles: [] }, :email, :password)
+      end 
     end
 
 end

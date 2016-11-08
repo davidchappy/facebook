@@ -81,5 +81,22 @@ RSpec.describe User, type: :model do
     expect{user.destroy}.to change{Post.count}.by(-1)
   end
 
+  # it "can request friendship with another user" do
+  #   user.save
+  #   user2.save
+  #   p user
+  #   p user2
+  #   expect(Friendship.count).to eq(0)
+  #   user.request_friendship(user2)
+  #   expect(Friendship.count).to eq(1)
+  #   p user.friendships
+  #   p user2.friendships
+  #   expect(user.friendships.count).to eq(1)
+  #   expect(user.friendships.last).to be_valid
+  #   expect(user2.friendships.count).to eq(1)
+  #   expect(user.friendships.last.status).to eq('pending')
+  #   expect(user2.friendships.last.status).to eq('pending')
+  # end
+
 
 end
