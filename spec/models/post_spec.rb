@@ -36,4 +36,14 @@ RSpec.describe Post, type: :model do
     expect(latest).to eq(Post.last)
   end
 
+  it "destroys associated comments" do
+    post.comments.create(user_id: user.id, content: "Sample comment")
+    expect{post.destroy}.to change{Comment.count}.by(-1)
+  end
+
+  it "destroys associated likes" do
+    user.likes.create(post_id: post.id)
+    expect{post.destroy}.to change{Like.count}.by(-1)
+  end
+
 end
