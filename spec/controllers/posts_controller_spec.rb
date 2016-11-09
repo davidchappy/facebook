@@ -6,6 +6,30 @@ RSpec.describe PostsController, type: :controller do
   let!(:user2) { build(:user, email: "sample@example.com", confirmed_at: Date.today) }
   let!(:new_post) { create(:post) }
 
+  it "gets index" do
+    sign_in user
+    get :index
+    expect(response.status).to eq(200)
+  end
+
+  it "gets show" do
+    sign_in user
+    get :show, params: { id: new_post.id }
+    expect(response.status).to eq(200)
+  end
+
+  it "gets new" do
+    sign_in user
+    get :new
+    expect(response.status).to eq(200)
+  end
+
+  it "gets edit" do
+    sign_in user
+    get :edit, params: { id: new_post.id }
+    expect(response.status).to eq(200)
+  end
+
   it "redirects create when not logged in" do
     expect do 
       post :create, params: { post: { content: "Lorem ipsum", user_id: user.id } }

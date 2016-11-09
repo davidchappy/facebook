@@ -31,6 +31,12 @@ RSpec.describe FriendshipsController, :type => :controller do
     expect(subject).to redirect_to(new_user_session_url)
   end
 
+  it "gets index" do
+    sign_in user
+    get :index
+    expect(response.status).to eq(200)
+  end
+
   # Friending to be tested in integration tests
 
 end
