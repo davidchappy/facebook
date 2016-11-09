@@ -58,4 +58,10 @@ class User < ApplicationRecord
     all_friends
   end
 
+  def feed
+    friend_ids = "SELECT friend_id FROM friendships WHERE user_id = :user_id AND status = 'friends'"
+    inverse_ids = "SELECT user_id FROM friendships WHERE friend_id = :user_id AND status = 'friends'"
+    Post.where("user_id IN (#{friend_ids}) OR user_id IN (#{inverse_ids}) OR user_id = :user_id", user_id: id)
+  end
+
 end

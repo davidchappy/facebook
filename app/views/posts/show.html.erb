@@ -1,0 +1,5 @@
+<h3><%= @post.user.name %> posted <%= time_ago_in_words(@post.created_at) %> ago:</h3>
+<p><%= @post.content %></p>
+<% if current_user == @post.user %>
+<%= link_to '(edit post)', edit_post_path(@post) %>
+<% end %>
