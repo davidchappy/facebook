@@ -4,16 +4,14 @@ class FriendshipsController < ApplicationController
   before_action :already_friends, only: [:create]
 
   def create
-    session[:return_to] ||= request.referer
+    @target_user = User.find(params[:friend_id])
     @friendship = current_user.friendships.build(friend_id: params[:friend_id])
     if @friendship.save
       flash[:success] = "Friend invite sent."
-      redirect_to session.delete(:return_to)
     else
-      flash.now[:danger] = "Couldn't add friend."
-      redirect_to session.delete(:return_to)
+      flash[:danger] = "Couldn't add friend."
     end
-
+    redirect_to user_url(@target_user)
   end
 
   def update
@@ -39,7 +37,7 @@ class FriendshipsController < ApplicationController
 
     def already_friends
       target_user = User.find(params[:friend_id])
-      if friendship_exists?(target_user)
+      if friendship_exists?(target_user) || friendship_exists?(current_user, target_user)
         flash[:message] = "A friendship already exists with that person."
         redirect_to user_path(target_user)
       end
