@@ -35,7 +35,7 @@ RSpec.describe CommentsController, type: :controller do
     expect(subject).to redirect_to(new_user_session_url)
   end
 
-  it "redirects update for wrong posts" do
+  it "redirects update for wrong comments" do
     sign_in user2
     expect do 
       patch :update, params: { id: new_comment.id, comment: { content: "New Comment", 
@@ -45,7 +45,7 @@ RSpec.describe CommentsController, type: :controller do
     expect(subject).to redirect_to(new_user_session_url)
   end
 
-  it "changes the post's content when update is successful" do
+  it "changes the comment's content when update is successful" do
     sign_in user
     expect do 
       patch :update, params: { id: new_comment.id, comment: { content: "New Comment", 
@@ -61,7 +61,7 @@ RSpec.describe CommentsController, type: :controller do
     expect(subject).to redirect_to(new_user_session_url)
   end
 
-  it "redirects destroy for wrong posts" do
+  it "redirects destroy for wrong comments" do
     sign_in user2
     expect do 
       delete :destroy, params: { id: new_comment.id }
@@ -69,7 +69,7 @@ RSpec.describe CommentsController, type: :controller do
     expect(subject).to redirect_to(new_user_session_url)
   end
 
-  it "destroys a post when successful" do
+  it "destroys a comment when successful" do
     sign_in user
     expect do 
       delete :destroy, params: { id: new_comment.id }
