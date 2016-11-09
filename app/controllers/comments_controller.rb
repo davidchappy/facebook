@@ -11,9 +11,21 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    if @comment.update_attributes(comment_params)
+      flash[:success] = "Comment updated."
+      redirect_to @comment.post
+    else
+      flash.now[:danger] = "There was a problem updating the comment."
+      render @comment.post
+    end
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    flash[:success] = "Comment deleted."
+    redirect_to @comment.post
   end
 
   private 

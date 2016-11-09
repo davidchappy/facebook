@@ -9,7 +9,11 @@
     <% @comments.each do |comment| %>
       <li>
         <% if comment.user == current_user %>
-          <p><%= link_to 'You', current_user %> said <%= time_ago_in_words(comment.created_at) %> ago.</p>
+          <p><%= link_to 'You', current_user %> said 
+              <%= time_ago_in_words(comment.created_at) %> ago. 
+              (<%= link_to 'delete', comment, method: :delete, data: { confirm: 'You sure?'} %>)
+          </p>
+          <%= render 'edit_comment', comment: comment %>
         <% else %>
          <p><%= link_to comment.user.name, comment.user %> <%= time_ago_in_words(comment.created_at) %> ago.</p>
         <% end %>
