@@ -36,7 +36,7 @@ RSpec.describe PostsController, type: :controller do
     expect(subject).to redirect_to(new_user_session_url)
   end
 
-  it "changes the post's content when successful" do
+  it "changes the post's content when update is successful" do
     sign_in user
     expect do 
       patch :update, params: { id: new_post.id, post: { content: "Different content", user_id: user.id } }
@@ -64,5 +64,5 @@ RSpec.describe PostsController, type: :controller do
       delete :destroy, params: { id: new_post.id }
     end.to change{Post.count}
   end
-
+  
 end
