@@ -10,4 +10,5 @@ class UsersController < ApplicationController
     @current_user = current_user
     @user = User.find(params[:id]) if params[:id]
   end
+
 end
