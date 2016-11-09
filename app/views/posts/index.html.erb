@@ -7,6 +7,7 @@
       <li>
         <a href="<%= post_path(post) %>"><em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></em></a> 
         <%= post.content %>
+        (<%= link_to "#{post.comments.count} comments", post %>)
       </li>
     </ul>
 
