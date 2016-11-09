@@ -1,0 +1,10 @@
+@mixin text-only {
+  background: none;
+  color: $primary-link-color;
+  shadow: none;
+  border: none;
+  display: inline;
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 0;
+}

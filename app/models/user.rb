@@ -64,4 +64,12 @@ class User < ApplicationRecord
     Post.where("user_id IN (#{friend_ids}) OR user_id IN (#{inverse_ids}) OR user_id = :user_id", user_id: id)
   end
 
+  def likes?(post)
+    self.likes.include?(user_like(post))
+  end
+
+  def user_like(post)
+    Like.where(user_id: self.id, post_id: post.id).take
+  end
+
 end

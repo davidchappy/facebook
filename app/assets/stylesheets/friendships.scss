@@ -11,12 +11,5 @@ ul li {
 }
 
 .text-only {
-  background: none;
-  color: -webkit-link;
-  shadow: none;
-  border: none;
-  display: inline;
-  font-size: 0.9em;
-  cursor: pointer;
-  padding: 0;
+  @include text-only;
 }

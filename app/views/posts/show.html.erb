@@ -1,5 +1,13 @@
 <h3><%= @post.user.name %> posted <%= time_ago_in_words(@post.created_at) %> ago:</h3>
 <p><%= @post.content %></p>
+<div>
+<span>(<%= pluralize(@post.likes.count, 'like') %>)</span> 
+<% unless current_user.likes?(@post) %>
+  <%= render 'like_form' %>
+<% else %>
+  <%= link_to 'UNLIKE', like_path(@like.id), method: :delete, class: 'text-only' %>
+<% end %>
+</div>
 <% if current_user == @post.user %>
   <%= link_to '(edit post)', edit_post_path(@post) %>
 <% end %>
