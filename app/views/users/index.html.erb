@@ -4,6 +4,7 @@
   <% @users.each do |user| %>
     <% unless user.id == @current_user.id %>
       <li>
+        <%= gravatar_for(user, size: 30) %>
         <%= link_to user.name, user_path(user) %>
       </li>
     <% end %>
