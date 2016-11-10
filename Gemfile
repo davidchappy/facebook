@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.2'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-facebook'
 gem 'paperclip', '~> 5.1'
 gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 gem 'faker', '~> 1.6', '>= 1.6.6'
@@ -34,6 +35,8 @@ end
 group :test do
   gem 'database_cleaner'
 end
+# For Heroku
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug', platform: :mri
