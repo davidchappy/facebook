@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable  
   devise :database_authenticatable, :registerable, :recoverable, 
-  :rememberable, :trackable, :validatable, :confirmable, :omniauthable
+  :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 
   validates :name, :email, :password, presence: true
   validates :name,  length: { minimum: 5, maximum: 120 }
@@ -70,6 +70,15 @@ class User < ApplicationRecord
 
   def user_like(post)
     Like.where(user_id: self.id, post_id: post.id).take
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+      # user.image = auth.info.image # assuming the user model has an image
+    end
   end
 
 end

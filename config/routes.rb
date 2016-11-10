@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {    sign_in: 'login', 
                                                 sign_out: 'logout', 
                                                 password: 'password_reset', 
-                                                confirmation: 'verification' }
+                                                confirmation: 'verification' },
+                                                controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   root to: "posts#index"
   resources :posts
   resources :comments, only: [:create, :update, :destroy]
