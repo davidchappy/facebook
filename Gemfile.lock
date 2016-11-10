@@ -426,6 +426,7 @@ DEPENDENCIES
   capybara-rails (~> 0.0.2)
   carrierwave (= 0.11.2)
   coffee-rails (~> 4.2)
+  database_cleaner
   devise (~> 4.2)
   factory_girl_rails (~> 4.7.0)
   faker (~> 1.6, >= 1.6.6)

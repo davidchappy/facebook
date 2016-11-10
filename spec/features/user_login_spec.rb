@@ -49,7 +49,7 @@ RSpec.feature "User Login", :type => :feature do
     click_link "Log Out" 
 
     expect(page).to have_text("You need to sign in or sign up before continuing.")
-    expect(page).to have_text("Sign up", count: 2)
+    expect(page).to have_text("Sign up", count: 1)
     expect(page).to have_text('Log in')
   end
 
