@@ -2,7 +2,7 @@
 
 <ul>
   <% @friendships.each do |friendship| %>
-    <li>    
+    <li class="friend_listing">    
       <% if @user.id == friendship.friend_id %>
         <%= render 'friendships/inverse_friend', friendship: friendship %>      
       <% else %>  
