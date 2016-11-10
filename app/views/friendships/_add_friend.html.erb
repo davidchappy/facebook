@@ -1,5 +1,3 @@
-  <%= form_for(@current_user.friendships.build) do |f| %>
-    <%= hidden_field_tag :friend_id, user.id %>
-    <%= hidden_field_tag :user_id, @current_user.id %>
-    <%= f.submit "add friend", class: "text-only", id: "add-friend" %>
-  <% end %>
+<%= button_to 'add friend', friendships_path,  method: :post,  
+                                                  class: "text-only", 
+                                                  params: { friend_id: user.id } %>

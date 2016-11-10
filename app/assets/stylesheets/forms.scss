@@ -1,0 +1,4 @@
+form.text-only,
+form.button_to {
+  @include text-only;
+}

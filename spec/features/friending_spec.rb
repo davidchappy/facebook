@@ -28,14 +28,14 @@ RSpec.feature "Friending", :type => :feature do
     expect(current_url).to eq(user_url(user2))
     expect(page).to have_text(user2.name)
     expect(page).to have_text('Not Friends.')
-    expect(page).to have_selector('form#new_friendship')
-    expect(page).to have_selector('input', id: "add-friend")
+    expect(page).to have_selector('form.button_to')
+    expect(page).to have_selector('input', class: "text-only")
 
     click_button('add friend')
     expect(current_url).to eq(user_url(user2))
     expect(page).to have_text(user2.name)
     expect(page).to have_text('Friendship Status: pending')
-    expect(page).to have_selector('a', text: 'remove')
+    expect(page).to have_selector('a', text: 'unfriend')
     expect(Friendship.count).to eq(1)
   end
 
@@ -61,7 +61,7 @@ RSpec.feature "Friending", :type => :feature do
 
     click_link('Your Friends')
     expect(page).to have_text(user.name, count: 1)
-    expect(page).to have_selector('a', text: 'remove')
+    expect(page).to have_selector('a', text: 'unfriend')
     expect(page).to_not have_selector('a', text: "accept")
   end
 

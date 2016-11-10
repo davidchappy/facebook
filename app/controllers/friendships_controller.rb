@@ -22,7 +22,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship = Friendship.find(params[:id])
-    @target_user = User.find(@friendship.friend_id) || User.find(@friendship.user_id)
+    @target_user = other_user_in_friendship(@friendship)
     Friendship.find(@friendship.id).destroy
     flash[:notice] = "Unfriended #{@target_user.name}"
     redirect_to friends_path

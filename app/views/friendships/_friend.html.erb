@@ -2,5 +2,5 @@
 <% if friendship.status == "pending" %>
   (pending)
 <% else %>  
-  (<%= link_to "remove", friendship, :method => :delete %>)
+  (<%= link_to "unfriend", friendship, :method => :delete %>)
 <% end %>   

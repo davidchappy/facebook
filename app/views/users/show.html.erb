@@ -6,7 +6,9 @@
 <% unless @current_user == @user %>
   <% if @current_user.is_friend?(@user) %>
     <p>Friendship Status: <%= @current_user.relationship_status(@user) %>(
-        <%= link_to "remove", @current_user.find_friendship(@user), :method => :delete %>)</p>
+        <%= link_to "unfriend", @current_user.find_friendship(@user), 
+                                method: :delete,
+                                data: { confirm: "You sure?"} %>)</p>
   <% else %>
     <span>Not Friends. (<%= render 'friendships/add_friend', user: @user %>)</span>
   <% end %>

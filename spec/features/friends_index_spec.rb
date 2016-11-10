@@ -25,7 +25,7 @@ RSpec.feature "Friends index", :type => :feature do
     expect(page).to have_text('pending')
 
     expect(page).to have_text(user3.name, count: 1)
-    expect(page).to have_selector('a', text: 'remove')
+    expect(page).to have_selector('a', text: 'unfriend')
   end
 
 end
