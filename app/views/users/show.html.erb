@@ -7,4 +7,9 @@
   <% else %>
     <span>Not Friends. (<%= render 'friendships/add_friend', user: @user %>)</span>
   <% end %>
+<% else %>
+  <li><%= link_to("Edit Profile", edit_user_registration_path) %></li>
 <% end %>
+
+<p><%= pluralize(@user.posts.count, 'post') %></p>
+<p><%= pluralize(@user.comments.count, 'comment') %></p>

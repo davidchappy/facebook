@@ -23,7 +23,7 @@ RSpec.feature "Site layout", :type => :feature do
     expect(page).to have_text("Your Feed", count: 2)
     expect(page).to have_text("Your Friends")
     expect(page).to have_text("All Users")
-    expect(page).to have_text("Edit Profile")
+    expect(page).to have_text("Your Profile")
   end
 
 end
