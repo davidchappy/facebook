@@ -16,3 +16,14 @@
 
 <p><%= pluralize(@user.posts.count, 'post') %></p>
 <p><%= pluralize(@user.comments.count, 'comment') %></p>
+
+<h3><%= @user.name %>'s Posts</h3>
+
+<ul class="profile-posts">
+  <% @user.posts.each do |post| %>
+    <li>
+      <p>Posted <%= link_to "#{time_ago_in_words(post.created_at)} ago", post_path(post) %></p>
+      <p><%= post.content %></p>
+    </li>
+  <% end %>  
+</ul>
