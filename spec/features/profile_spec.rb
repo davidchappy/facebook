@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Site layout", :type => :feature do
+RSpec.feature "User profile", :type => :feature do
 
   let!(:user) { create(:user) }
 

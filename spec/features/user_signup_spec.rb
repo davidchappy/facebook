@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "User Login", :type => :feature do
+RSpec.feature "User Signup", :type => :feature do
 
   let!(:user) { create(:user, confirmed_at: nil) }
   let!(:user2) { build(:user, name: "New User", email: "new@sample.com", confirmed_at: nil) }
@@ -48,7 +48,7 @@ RSpec.feature "User Login", :type => :feature do
     expect(current_url).to eq(new_user_session_url)
   end
 
-  scenario "User login with valid information" do
+  scenario "User sign with confirmation" do
     visit root_url
 
     fill_in "Email", :with => user.email
