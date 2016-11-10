@@ -4,7 +4,7 @@
   <% @posts.each do |post| %>
 
     <ul>
-      <li>
+      <li class="post_item">
         <a href="<%= post_path(post) %>"><em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></em></a> 
         <%= post.content %>
         (<%= pluralize(post.likes.count, 'like') %>)

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users index", :type => :feature do
+RSpec.feature "Friends index", :type => :feature do
 
   let!(:user) { create(:user) }
   let!(:user2) { create(:user,  name: "New User", 
@@ -14,7 +14,7 @@ RSpec.feature "Users index", :type => :feature do
                                         friend_id: user3.id, 
                                         status: 'friends') }
 
-  scenario "User index" do
+  scenario "Friends index view" do
     login_as(user)
     visit friends_url
 
