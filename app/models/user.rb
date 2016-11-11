@@ -80,7 +80,7 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.uid = auth.uid
       user.provider = auth.provider
-      # user.skip_confirmation!
+      user.skip_confirmation!
       # user.image = auth.info.image # assuming the user model has an image
     end
   end
