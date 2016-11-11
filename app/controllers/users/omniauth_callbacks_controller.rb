@@ -3,7 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    @user.confirm
+    @user.skip_confirmation!
     sign_in_and_redirect @user 
 
     # if @user.persisted?
