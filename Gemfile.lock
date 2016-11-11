@@ -459,7 +459,6 @@ DEPENDENCIES
   letter_opener (~> 1.4, >= 1.4.1)
   listen (~> 3.0.5)
   mini_magick (= 4.5.1)
-  omniauth
   omniauth-facebook
   paperclip (~> 5.1)
   pg (~> 0.18)
