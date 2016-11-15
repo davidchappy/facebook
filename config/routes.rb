@@ -6,7 +6,9 @@ Rails.application.routes.draw do
                                                 sign_out: 'logout', 
                                                 password: 'password_reset', 
                                                 confirmation: 'verification' },
-                                controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+                                controllers: {  omniauth_callbacks: "users/omniauth_callbacks",
+                                                registrations: "registrations",
+                                                sessions: "sessions" }
   root to: "posts#index"
   resources :posts
   resources :comments, only: [:create, :update, :destroy]

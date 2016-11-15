@@ -85,4 +85,8 @@ class User < ApplicationRecord
     end
   end
 
+  def after_confirmation
+    WelcomeMailer.welcome(self).deliver unless self.invalid?
+  end
+
 end
