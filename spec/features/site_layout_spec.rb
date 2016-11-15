@@ -7,7 +7,7 @@ RSpec.feature "Site layout", :type => :feature do
   scenario "Site layout for new user" do
     visit root_url
 
-    expect(page).to have_selector('a', count: 4)
+    expect(page).to have_selector('a', count: 3)
     expect(page).to have_text("Sign up", count: 1)
     expect(page).to have_text("Log in")
     expect(page).to have_text("Forgot your password")
